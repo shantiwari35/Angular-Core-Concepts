@@ -1,0 +1,85 @@
+<div class="container-fluid">
+  <h3>Attribute Directive</h3>
+  <ul>
+    <li>
+      Attribute directives in Angular are used to modify the behavior or appearance of an element, component, or another
+      directive. Unlike structural directives, which change the structure of the DOM, attribute directives only affect
+      the
+      element they are applied to.
+    </li>
+    <li>
+      Key Points
+      <ol>
+        <li>
+          Purpose: Attribute directives modify the appearance or behavior of DOM elements.
+        </li>
+        <li>
+          Usage: Typically applied as an attribute to an element.
+        </li>
+        <li>
+          HostListener and HostBinding: Used in custom directives to respond to events and bind properties.
+        </li>
+      </ol>
+    </li>
+    <li>
+      Some build in attribute directive are
+      <ol>
+        <li>
+          ngClass
+        </li>
+        <li>
+          ngStyle
+        </li>
+        <li>
+          ngModel
+        </li>
+      </ol>
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col-4">
+      <h4>
+        `ngClass` Directive
+      </h4>
+      <ul>
+        <li *ngFor="let item of ngClassDirective">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          For Example:
+          <input type='input' class="form-control" [ngClass]="{'hidden':disabled}" #toHideShow>
+          <button type="button" class="btn" (click)="toHideinput()">Toggle</button>
+        </li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <h4>
+        `ngStyle` Directive
+      </h4>
+      <ul>
+        <li *ngFor="let item of ngStyleDirective">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          Change color of div using ngStyle.
+          <div [ngStyle]="divStyle" (click)="changeToRandomColor()">
+            <span >Click me to change color</span>
+          </div>
+        </li>
+        <li>
+          <b>Highlighting Text using custom directive</b>
+          <br>
+          <span appHighlightText="green"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet eos maxime aspernatur, blanditiis ea dignissimos pariatur laborum ut! Sunt animi nesciunt ratione, saepe quisquam possimus ea unde nulla aliquid alias!
+          </span>
+        </li>
+        <li>
+          <b>Highlighting Text in random color using custom directive</b>
+          <br>
+          <span [appHighlightText]="getRandomColor()"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet eos maxime aspernatur, blanditiis ea dignissimos pariatur laborum ut! Sunt animi nesciunt ratione, saepe quisquam possimus ea unde nulla aliquid alias!
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

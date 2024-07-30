@@ -1,0 +1,11 @@
+.hidden{
+  display: none;
+}
+
+.btn {
+  width: fit-content;
+  background-color: #FF5503;
+  border: #faf8f4;
+  border-radius: 5%;
+  font-weight: 600;
+}

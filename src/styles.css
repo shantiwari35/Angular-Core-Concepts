@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: #ffc107;
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(255, 85, 3, .25);
+}
+h3 {
+  font-style: italic;
+  text-decoration: underline;
+}
+body{
+  background-color: #faf8f4;
+}
+li:has(code) {
+  background-color: #32323B;
+  margin-bottom: 0.5rem;
+}
+
+code {
+  white-space: pre;
+  width: 100%;
+  border-radius: 0.3rem;
+  color: #FEFDF9;
+  padding: 4px 5px 5px;
+}
+
+.form-check-input:checked {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.form-check-input:focus {
+  border:#ffc107 !important;
+  outline: 0;
+  box-shadow: 0 0 0 .25rem hsla(45,100%,51%, .25);
+}

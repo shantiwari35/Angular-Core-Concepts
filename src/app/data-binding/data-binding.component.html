@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <div class="row header-row">
+    <div class="col divTwoCol">
+      <div class="childCol">
+        <h3>Interpolation (One-Way Binding)</h3>
+        <ul>
+          <li>Binds data from the component to the view.</li>
+          <li>.ts --> html</li>
+          <li>
+            <code>
+              {{ interpolationVar }}
+            </code>
+          </li>
+        </ul>
+      </div>
+      <div class="childCol">
+        <h3>Signal</h3>
+        <ul>
+          <li *ngFor="let item of signalBinding">
+            @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+          </li>
+          <li>
+            <label for=""><b>Enter to test signal</b></label>
+            <input type="text" class='form-control' [(ngModel)]="firstName" />
+            <br />
+            <button class="btn" (click)="firstnameSignal.set(firstName)">
+              Signal Change
+            </button>
+            <br />
+            <span>Signal Value: {{ firstnameSignal() | json }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <h3>Property Binding (One-Way Binding)</h3>
+      <ul>
+        <li *ngFor="let item of propertyBindingArr">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Event Binding</h3>
+
+      <ul>
+        <li *ngFor="let item of eventbinding">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+      </ul>
+      <li>
+
+        <button type="button" class="btn" (click)="onClick()">
+          Click Here!
+        </button>
+
+      </li>
+    </div>
+    <div class="col">
+      <h3>Two-Way Binding</h3>
+
+      <ul>
+        <li *ngFor="let item of twoWayBinding">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          For example:
+          <br />
+          <label for="inputText">Enter Any text : </label>
+          <input type="text" id="inputText" name="inputText" [(ngModel)]="text" />
+          <br />
+          <span>Entered Text : {{ text }}</span>
+          <br />
+          <span>{{ text | json }}</span>
+        </li>
+        <li>
+          dropdown example:
+          <br />
+          <select title="{{ selectedDropdown }}" [(ngModel)]="selectedDropdown">
+            <option title="" value="">Select option</option>
+            <option title="Angular" value="Angular">Angular</option>
+            <option title="ReactJS" value="ReactJS">ReactJs</option>
+          </select>
+
+          <br />
+          <span>Selected Value: {{ selectedDropdown }}</span>
+          <br />
+          <span>{{ selectedDropdown | json }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

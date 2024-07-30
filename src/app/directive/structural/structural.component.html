@@ -1,0 +1,101 @@
+<div class="container-fluid">
+  <h3>Structural Directive</h3>
+
+  <ul>
+    <li>
+      Structural directives in Angular are a type of directive that can change the structure of the DOM.
+    </li>
+    <li>
+      They are responsible
+      for adding, removing, or manipulating elements in the DOM. Unlike attribute directives, which change the
+      appearance or
+      behavior of an element, structural directives affect the layout by altering the DOM.
+    </li>
+    <li>
+      Some Build in structural directives are
+      <ol>
+        <li>*ngIf</li>
+        <li>*ngFor</li>
+        <li>*ngSwitch</li>
+      </ol>
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col-4">
+      <h4>`ngIf` Directive:</h4>
+
+      <ul>
+        <li *ngFor="let item of ngIfDirective">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>For Example select value of isVisible:
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="true" id="flexRadioDefault1"
+              [(ngModel)]="isVisible" (change)="onVisibilityChange($event)">
+            <label class="form-check-label" for="flexRadioDefault1">
+              True
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" value="false" id="flexRadioDefault2"
+              checked [(ngModel)]="isVisible" (change)="onVisibilityChange($event)">
+            <label class="form-check-label" for="flexRadioDefault2">
+              False
+            </label>
+          </div>
+          <div class="gif-class" *ngIf="isVisible=='true'">
+            <video poster="assets\gif\Haha_meme.gif" class="full-media" loop="" autoplay="" playsinline="">
+            </video>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <h4>`ngFor` Directive:</h4>
+      <ul>
+        <li *ngFor="let item of ngForDirective">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <h4>`ngSwitch` Directive:</h4>
+      <ul>
+        <li *ngFor="let item of ngSwitchDirective">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          <select class="form-select form-select-lg mb-3" aria-label="Large select example" [(ngModel)]="selectedMeme" (change)="changeMEME($event)">
+            <option value="">Open this select menu</option>
+            <option value="1">Meme 1</option>
+            <option value="2">Meme 2</option>
+            <option value="3">Meme 3</option>
+          </select>
+
+          <div ngSwitch="{{selectedMeme}}">
+            <div *ngSwitchCase="'1'">
+              <iframe src="https://assets.pinterest.com/ext/embed.html?id=636203884855624734" height="445" width="345"
+                frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div *ngSwitchCase="'2'">
+              <iframe src="https://assets.pinterest.com/ext/embed.html?id=945333778015757829" height="514" width="345"
+                frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div *ngSwitchCase="'3'">
+              <iframe src="https://assets.pinterest.com/ext/embed.html?id=19069998416419370" height="435" width="345"
+                frameborder="0" scrolling="no"></iframe>
+            </div>
+            <div *ngSwitchDefault>
+              <iframe src="https://assets.pinterest.com/ext/embed.html?id=1060527412245459995" height="295" width="345"
+                frameborder="0" scrolling="no"></iframe>
+            </div>
+          </div>
+
+
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
