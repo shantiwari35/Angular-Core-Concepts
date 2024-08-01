@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { StructuralComponent } from './directive/structural/structural.component';
 import { AttributeComponent } from './directive/attribute/attribute.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 export const routes: Routes = [
   {
@@ -15,5 +16,9 @@ export const routes: Routes = [
   {
     path: 'attribute-directive',
     component: AttributeComponent,
+  },
+  {
+    path: 'pipes',
+    component: PipesComponent,
   },
 ];

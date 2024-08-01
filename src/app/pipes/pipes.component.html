@@ -1,0 +1,139 @@
+<div class="container-fluid">
+  <h3>Pipes</h3>
+  <ul>
+    <li *ngFor="let item of pipeArr">
+      @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+    </li>
+    <li>Types of Pipes in Angular</li>
+    <ol>
+      <li>Built-in Pipes</li>
+      <li>Custom Pipes</li>
+    </ol>
+  </ul>
+
+  <div class="row">
+    <div class="col-6">
+      <h4>Built-in Pipes</h4>
+      <ul>
+        <li *ngFor="let item of builtInArr">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          Examples:
+          <input type="text" class='form-control' placeholder="Enter to test Pipe" [(ngModel)]="pipeString">
+          <ol>
+            <li>
+              UpperCasePipe: {{pipeString|uppercase}}
+            </li>
+            <li>
+              LowerCasePipe: {{pipeString|lowercase}}
+            </li>
+          </ol>
+          <input type="date" class="form-control" [(ngModel)]="testDatePipe">
+          <ol>
+            <li>
+              Date Pipe in 'MM/dd/yyyy' : {{testDatePipe|date:'MM/dd/yyyy'}}
+            </li>
+            <li>
+              Date Pipe in 'yyyy/MM/dd hh:ss': {{testDatePipe|date:'yyyy/MM/dd hh:ss'}}
+            </li>
+          </ol>
+          <input type="number" class='form-control' placeholder="Enter a number to test pipe"
+            [(ngModel)]="numberPipeTest">
+          <ol>
+            <li>
+              Currency USD: {{ numberPipeTest | currency:'USD' }}
+            </li>
+            <li>
+              Currency IND: {{ numberPipeTest | currency:'IND' }}
+            </li>
+            <li>
+              Percent: {{ numberPipeTest | percent }}
+            </li>
+            <li>
+              Decimal: {{ numberPipeTest | number:'1.2-2' }}
+            </li>
+            <li>
+              [1, 2, 3, 4, 5] | slice:1:3 : {{ [1, 2, 3, 4, 5] | slice:1:3 }}
+            </li>
+
+          </ol>
+        </li>
+      </ul>
+
+    </div>
+    <div class="col-6">
+      <h4>Custom Pipes</h4>
+      <ul>
+        <li *ngFor="let item of customPipeArr">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          <input type="number" class="form-control" [(ngModel)]="mainNum" placeholder="enter a number">
+          <input type="number" class="form-control" [(ngModel)]="exponentNum" placeholder="enter a exponent">
+          Example of custom pipe : {{mainNum |exponentialStrength:exponentNum}}
+        </li>
+      </ul>
+
+      <h4>Pure Pipes</h4>
+      <ul>
+        <li>Any pipe that doesnt take any arguments as an input is a pure pipe</li>
+        <li>Pure pipes are the default type of pipes in Angular.</li>
+        <li>They are only recalculated when the input to the pipe changes by reference.</li>
+        <li>This means that pure pipes do not run their transformation logic unless the input object or array changes in
+          memory.</li>
+        <li>Characteristics of Pure Pipes:</li>
+        <ol>
+          <li>They are stateless and rely solely on their input arguments.</li>
+          <li>They are called only when Angular detects a change in the input object’s reference.</li>
+          <li>They are efficient and perform well since they don’t run on every change detection cycle.</li>
+
+        </ol>
+      </ul>
+
+      <h4>Impure Pipes</h4>
+      <ul>
+        <li>Any pipe that takes any arguments as an input is a impure pipe.</li>
+        <li>Impure pipes are recalculated on every change detection cycle, regardless of whether the input object has
+          changed</li>
+        <li>They are used for cases where the input might change in ways that are not detectable by Angular’s default
+          change
+          detection mechanism.</li>
+
+        <li>Characteristics of Impure Pipes</li>
+        <ol>
+          <li>They can be stateful and depend on more than just their input arguments.</li>
+          <li>They run their transformation logic on every change detection cycle.</li>
+          <li>They can be less efficient because they are recalculated more frequently.</li>
+          <li>Example of Impure pipe is exponentialStrength pipe which</li>
+        </ol>
+      </ul>
+
+      <h4>Summary</h4>
+      <ul>
+        <b>Pure Pipe:</b>
+        <li>
+          Default type of pipe.
+        </li>
+        <li>
+          Recalculated only when input changes by reference.
+        </li>
+        <li>
+          Efficient and performant.
+        </li>
+      </ul>
+      <ul>
+        <b>Impure Pipes:</b>
+        <li>
+          Recalculated on every change detection cycle.
+        </li>
+        <li>
+          Used for cases where inputs might change without reference changes.
+        </li>
+        <li>
+          Less efficient due to frequent recalculations.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
