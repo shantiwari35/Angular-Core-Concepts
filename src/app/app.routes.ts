@@ -3,8 +3,19 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { StructuralComponent } from './directive/structural/structural.component';
 import { AttributeComponent } from './directive/attribute/attribute.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { FormsComponent } from './forms/forms.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path:'',
+    pathMatch: 'prefix',
+    redirectTo:'home',
+  },
   {
     path: 'data-binding',
     component: DataBindingComponent,
@@ -20,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'pipes',
     component: PipesComponent,
+  },
+  {
+    path: 'forms',
+    component: FormsComponent,
   },
 ];
