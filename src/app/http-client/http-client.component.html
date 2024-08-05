@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h3>Http-Client</h3>
+  <ul>
+    @for (item of httpClientArr; track $index) {
+
+    @if (item.includes('Syntax')) {
+    <li>
+      <code>{{ item }}</code>
+    </li>
+    }@else if(item.includes('Key Features')){
+      <li><b>{{item}}</b></li>
+    <ol>
+      @for (item1 of httpkeyFeatures; track $index) {
+      <li>
+        @if (item.includes('Syntax')) {
+        <code>{{ item1 }}</code>
+        }@else{
+        <b>{{ item1 }}</b>
+        }
+      </li>
+      }
+
+    </ol>
+    }@else{
+    <li>
+      <b>{{ item }}</b>
+    </li>
+    }
+
+    }
+  </ul>
+</div>

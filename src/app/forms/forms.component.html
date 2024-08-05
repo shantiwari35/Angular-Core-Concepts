@@ -1,1 +1,233 @@
-<p>forms works!</p>
+<div class="container-fluid">
+  <h3>Forms</h3>
+  <ul>
+    <li>
+      In Angular, forms can be created and managed using two different approaches: Template-driven forms and Reactive
+      forms.
+    </li>
+    <li>
+      Each approach offers different features and use cases.
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col-6">
+      <h4>Template-Driven Forms</h4>
+      <ul>
+        @for (item of templateFormArr; track $index) {
+        <li>
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        }
+      </ul>
+
+      <h4>Example of Template-Driven Form</h4>
+      <form #userForm="ngForm" class="formG" (submit)="onUserFormSubmit()">
+        <div class="row">
+          <div class="col-6">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" class="form-control" #firstN="ngModel" [(ngModel)]="user.firstName"
+              required>
+            <div *ngIf="firstN.errors?.['required'] && firstN.touched" class="alert alert-danger">
+              First Name is required
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" class="form-control" #lName="ngModel" [(ngModel)]="user.lastName"
+              required>
+            <div *ngIf="lName.errors?.['required'] && lName.touched" class="alert alert-danger">
+              Last Name is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="dateOfBirth">DOB</label>
+            <input type="date" name="dateOfBirth" class="form-control" #dob="ngModel" [(ngModel)]="user.dob" required>
+            <div *ngIf="dob.errors?.['required'] && dob.touched" class="alert alert-danger">
+              DOB is required
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="age">Age</label>
+            <input type="number" name="age" class="form-control" #age="ngModel" [(ngModel)]="user.age" required>
+            <div *ngIf="age.errors?.['required'] && age.touched" class="alert alert-danger">
+              Age is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="dateOfBirth">Mobile</label>
+            <input type="number" name="mobile" class="form-control" #mob="ngModel" [(ngModel)]="user.mob" required>
+            <div *ngIf="mob.errors?.['required'] && mob.touched" class="alert alert-danger">
+              Mobile number is required
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="address">Address</label>
+            <input type="text" name="address" class="form-control" #address="ngModel" [(ngModel)]="user.address"
+              required>
+            <div *ngIf="address.errors?.['required'] && address.touched" class="alert alert-danger">
+              Address is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+
+          <div class="col-6">
+            <label for="gender">Gender</label>
+            <div class="input-group">
+              <div class="input-group-text checkbox-flex">
+                <input class="form-check-input mt-0" type="radio" #gender='ngModel' name="gender" value="male"
+                  [(ngModel)]="user.gender" aria-label="Male" required> Male
+                <input class="form-check-input mt-0" type="radio" #gender='ngModel' name="gender" value="female"
+                  [(ngModel)]="user.gender" aria-label="Female" required> Female
+              </div>
+              <div *ngIf="gender.errors?.['required'] && gender.touched" class="alert alert-danger">
+                Gender is required
+              </div>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="tc">Terms & condition</label>
+            <div class="input-group mb-3">
+              <div class="input-group-text checkbox-flex">
+                <input class="form-check-input mt-0" type="checkbox" #tc='ngModel' name="tc"
+                  aria-label="Checkbox for following text input" [(ngModel)]="user.tc" required> <span>Terms &
+                  conditon</span>
+                <div *ngIf="tc.errors?.['required'] && tc.touched" class="alert alert-danger">
+                  Terms & Condition is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+
+          </div>
+          <div class="col-6">
+            <button type="submit" class="btn btn-warning" [disabled]="!userForm.form.valid"
+              style="float: right;">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      <div>
+
+        {{user|json}}
+      </div>
+    </div>
+    <div class="col-6">
+      <h4>Reactive Form</h4>
+      <ul>
+        @for (item of reactiveFormArr; track $index) {
+        <li>
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        }
+      </ul>
+
+      <form [formGroup]="userFormReactive" class="formG" (ngSubmit)="onUserFromReactive()">
+        <div class="row">
+          <div class="col-6">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" class="form-control" formControlName="firstName">
+            <div
+              *ngIf="userFormReactive.controls['firstName'].errors?.['required'] && userFormReactive.controls['firstName'].touched"
+              class="alert alert-danger">
+              First Name is required
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" class="form-control" formControlName="lastName">
+            <div
+              *ngIf="userFormReactive.controls['lastName']?.errors?.['required'] && userFormReactive.controls['lastName']?.touched"
+              class="alert alert-danger">
+              Last Name is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="dateOfBirth">DOB</label>
+            <input type="date" name="dateOfBirth" class="form-control" formControlName="dob" >
+            <div *ngIf="userFormReactive.controls['dob']?.errors?.['required'] && userFormReactive.controls['dob']?.touched" class="alert alert-danger">
+              DOB is required
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="age">Age</label>
+            <input type="number" name="age" class="form-control" formControlName="age" >
+            <div *ngIf="userFormReactive.controls['age']?.errors?.['required'] && userFormReactive.controls['age']?.touched" class="alert alert-danger">
+              Age is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="mobile">Mobile</label>
+            <input type="number" name="mobile" class="form-control" formControlName="mobile" >
+            <div *ngIf="userFormReactive.controls['mobile']?.errors?.['required'] && userFormReactive.controls['mobile']?.touched" class="alert alert-danger">
+              Mobile number is required
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="address">Address</label>
+            <input type="text" name="address" class="form-control" formControlName="address" >
+            <div *ngIf="userFormReactive.controls['address']?.errors?.['required'] && userFormReactive.controls['address']?.touched"  class="alert alert-danger">
+              Address is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+
+          <div class="col-6">
+            <label for="gender">Gender</label>
+            <div class="input-group">
+              <div class="input-group-text checkbox-flex">
+                <input class="form-check-input mt-0" type="radio" formControlName="gender" value="male"
+                  [(ngModel)]="user.gender" aria-label="Male" > Male
+                <input class="form-check-input mt-0" type="radio" formControlName="gender" value="female"
+                  [(ngModel)]="user.gender" aria-label="Female" > Female
+              </div>
+              <div *ngIf="userFormReactive.controls['gender']?.errors?.['required'] && userFormReactive.controls['gender']?.touched"  class="alert alert-danger">
+                Gender is required
+              </div>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="tc">Terms & condition</label>
+            <div class="input-group mb-3">
+              <div class="input-group-text checkbox-flex">
+                <input class="form-check-input mt-0" type="checkbox" name="tc"
+                  aria-label="Checkbox for following text input" formControlName="tc" required> <span>Terms &
+                  conditon</span>
+                <div *ngIf="userFormReactive.controls['tc']?.errors?.['required'] && userFormReactive.controls['tc']?.touched"  class="alert alert-danger">
+                  Terms & Condition is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+
+          </div>
+          <div class="col-6">
+            <button type="submit" class="btn btn-warning" style="float: right;">Submit</button>
+          </div>
+        </div>
+      </form>
+      <div>{{reactiveformValue|json}}</div>
+    </div>
+  </div>
+
+</div>

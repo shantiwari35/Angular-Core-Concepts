@@ -5,6 +5,7 @@ import { AttributeComponent } from './directive/attribute/attribute.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { FormsComponent } from './forms/forms.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientComponent } from './http-client/http-client.component';
 
 export const routes: Routes = [
   {
@@ -12,9 +13,9 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path:'',
+    path: '',
     pathMatch: 'prefix',
-    redirectTo:'home',
+    redirectTo: 'home',
   },
   {
     path: 'data-binding',
@@ -35,5 +36,9 @@ export const routes: Routes = [
   {
     path: 'forms',
     component: FormsComponent,
+  },
+  {
+    path: 'httpClient',
+    component: HttpClientComponent,
   },
 ];

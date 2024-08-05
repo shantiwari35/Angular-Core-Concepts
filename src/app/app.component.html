@@ -1,40 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light" >
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="home">Angular Tutorial</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Basic Topic
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLinkActive="active nav-link" routerLink='/data-binding'>Data Binding</a>
-              </li>
-              <li><a class="dropdown-item" routerLinkActive="active nav-link" routerLink="/structural-directive">Structural Directive</a></li>
-              <li><a class="dropdown-item" routerLinkActive="active nav-link" routerLink="/attribute-directive">Attribute Directive</a></li>
-              <li><a class="dropdown-item" routerLinkActive="active nav-link" routerLink="/pipes">Pipes</a></li>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home">Angular Tutorial</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
+      aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Basic Topic
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let item of pagesInfoObservable |async;let i=index">
+              <a class="dropdown-item" routerLinkActive="active nav-link"
+                routerLink={{item.pageRoute}}>{{item.pageName}}</a>
+            </li>
 
-            </ul>
-          </li>
+          </ul>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline" type="submit">Search</button>
-        </form>
-      </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline" type="submit">Search</button>
+      </form>
     </div>
-  </nav>
+  </div>
+</nav>
 <router-outlet></router-outlet>
