@@ -1,0 +1,12 @@
+.formG {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.btn{
+  width:fit-content;
+  float: right;
+
+}

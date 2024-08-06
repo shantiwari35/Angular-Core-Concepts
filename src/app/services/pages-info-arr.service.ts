@@ -32,7 +32,7 @@ export class PagesInfoArrService {
       pageRoute: '/forms',
     },
     {
-      pageName: 'HttpClient-API',
+      pageName: 'HttpClient-CRUD',
       pageImageUrl: '',
       pageRoute: '/httpClient',
     },

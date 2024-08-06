@@ -8,7 +8,7 @@
       <code>{{ item }}</code>
     </li>
     }@else if(item.includes('Key Features')){
-      <li><b>{{item}}</b></li>
+    <li><b>{{item}}</b></li>
     <ol>
       @for (item1 of httpkeyFeatures; track $index) {
       <li>
@@ -29,4 +29,151 @@
 
     }
   </ul>
+  <div class="row">
+    <h4>Get Request Example
+    </h4>
+    <div class="d-grid gap-2">
+      <button class="btn btn-warning" type="button" (click)="onGetCustomerList()">Get All Customers!</button>
+      <table mat-table [dataSource]="customersList"  *ngIf="customersList.length > 0">
+        <ng-container matColumnDef="userId">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="userName">
+          <th mat-header-cell *matHeaderCellDef> User Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="emailId">
+          <th mat-header-cell *matHeaderCellDef> Email Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.emailId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef> Full Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef> Role </th>
+          <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+        </ng-container>
+        <ng-container matColumnDef="createdDate">
+          <th mat-header-cell *matHeaderCellDef> created Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+        </ng-container>
+        <ng-container matColumnDef="password">
+          <th mat-header-cell *matHeaderCellDef> Password</th>
+          <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+        </ng-container>
+        <ng-container matColumnDef="projectName">
+          <th mat-header-cell *matHeaderCellDef> project Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+            No data matching the filter.
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>Crud operation</h4>
+    <div class="col-6">
+      <h5>All Courses</h5>
+      <table mat-table [dataSource]="coursesList">
+        <ng-container matColumnDef="courseId">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.courseId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="courseName">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.courseName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="createdDate">
+          <th mat-header-cell *matHeaderCellDef> Created Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+        </ng-container>
+        <ng-container matColumnDef="totalVideos">
+          <th mat-header-cell *matHeaderCellDef> Total Videos </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalVideos}} </td>
+        </ng-container>
+        <ng-container matColumnDef="totalHours">
+          <th mat-header-cell *matHeaderCellDef> Total Hours </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalHours}} </td>
+        </ng-container>
+        <ng-container matColumnDef="courseDescription">
+          <th mat-header-cell *matHeaderCellDef> Course Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.courseDescription}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-button (click)="getRowData(this.row)">Edit</button>
+            <button mat-button (click)="deleteRow(this.row)">Delete</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayColumnsCourse"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumnsCourse;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" [attr.colspan]="displayColumnsCourse.length">
+            No data matching the filter.
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-6">
+      <form [formGroup]="courseForm" (ngSubmit)="OnCourseFormSubmit()" class="formG">
+
+        <div class="row">
+          <div class="col-6">
+            <label for="courseName">Course Name</label>
+            <input type="text" name="courseName" class="form-control" formControlName="courseName">
+            <div
+              *ngIf="courseForm.controls['courseName'].errors?.['required'] && courseForm.controls['courseName'].touched"
+              class="alert alert-danger">
+              course name is required
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="totalHours">Total hour</label>
+            <input type="text" name="totalHours" class="form-control" formControlName="totalHours">
+            <div
+              *ngIf="courseForm.controls['totalHours'].errors?.['required'] && courseForm.controls['totalHours'].touched"
+              class="alert alert-danger">
+              total hour is required
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="totalVideos">Total Videos</label>
+            <input type="number" name="totalVideos" class="form-control" formControlName="totalVideos">
+            <div *ngIf="courseForm.controls['totalVideos'].errors?.['required'] && courseForm.controls['totalVideos'].touched"
+              class="alert alert-danger">
+              total videos is required
+            </div>
+
+          </div>
+          <div class="col-6">
+            <label for="courseDescription">Description</label>
+            <input type="text" name="courseDescription" class="form-control" formControlName="courseDescription">
+            <div *ngIf="courseForm.controls['courseDescription'].errors?.['required'] && courseForm.controls['courseDescription'].touched"
+              class="alert alert-danger">
+              Description is required
+            </div>
+
+          </div>
+
+        </div>
+        <div class="row">
+            <button type="submit" [disabled]="!this.courseForm.valid" class="btn btn-warning" style="float: right;">Submit</button>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
 </div>
