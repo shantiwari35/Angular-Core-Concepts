@@ -7,6 +7,7 @@ import { FormsComponent } from './forms/forms.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientComponent } from './http-client/http-client.component';
 import { InputOutputComponent } from './input-output/input-output.component';
+import { LifeCycleEventComponent } from './life-cycle-event/life-cycle-event.component';
 
 export const routes: Routes = [
   {
@@ -45,5 +46,9 @@ export const routes: Routes = [
   {
     path: 'inputOutput',
     component: InputOutputComponent,
+  },
+  {
+    path: 'lifecycle-event',
+    component: LifeCycleEventComponent,
   },
 ];

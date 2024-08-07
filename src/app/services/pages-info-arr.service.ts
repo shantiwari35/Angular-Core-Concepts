@@ -41,6 +41,11 @@ export class PagesInfoArrService {
       pageImageUrl: '',
       pageRoute: '/inputOutput',
     },
+    {
+      pageName: 'Lifecycle event',
+      pageImageUrl: '',
+      pageRoute: '/lifecycle-event',
+    },
   ];
   constructor() {}
 

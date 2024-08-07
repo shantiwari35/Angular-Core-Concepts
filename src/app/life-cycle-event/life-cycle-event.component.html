@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <h3>Lifecycle Events of Angular</h3>
+  <ol>
+    <li>Angular components and directives have a well-defined lifecycle managed by Angular, from creation to destruction.</li>
+    <li>Angular provides lifecycle hooks that allow you to tap into these key moments in the lifecycle of a component or
+    directive.</li>
+    <li>Here are the most commonly used lifecycle hooks:</li>
+    <ul>
+      <li>
+        <b>ngOnChanges: </b>Called before ngOnInit (if the component has bound inputs) and whenever one or more data-bound input properties change.
+      </li>
+      <li>
+        <b>ngOnInit: </b>Called once after the first ngOnChanges. This is where you can perform component initialization.
+      </li>
+      <li>
+        <b>ngDoCheck: </b>Called during every change detection run, immediately after ngOnChanges and ngOnInit.
+      </li>
+      <li>
+        <b>ngAfterContentInit :</b>Called once after Angular projects external content into the component's view (or the view that a directive is in).
+      </li>
+      <li>
+        <b>ngAfterContentChecked :</b>Called after every check of the component's content (external content projected into the component).
+      </li>
+      <li>
+        <b>ngAfterViewInit :</b>Called once after Angular initializes the component's views and child views.
+      </li>
+      <li>
+        <b>ngAfterViewChecked :</b>Called after every check of the component's views and child views.
+      </li>
+      <li>
+        <b>ngOnDestroy :</b>Called once just before the component is destroyed. Use this hook to clean up any resources (e.g., unsubscribe from
+        observables, detach event handlers).
+      </li>
+    </ul>
+    <li>
+      Execution order:
+      <ul>
+        <li *ngFor="let item of executionOrderArr">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+      </ul>
+    </li>
+    <li>Example for ngOnChanges:<br>
+    <button class="btn btn-warning" (click)="changeChildColor()">change example</button>
+    <app-life-cycle-child [color]="colorString"></app-life-cycle-child>
+    </li>
+  </ol>
+</div>
