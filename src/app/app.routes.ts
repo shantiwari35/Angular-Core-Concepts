@@ -6,6 +6,7 @@ import { PipesComponent } from './pipes/pipes.component';
 import { FormsComponent } from './forms/forms.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientComponent } from './http-client/http-client.component';
+import { InputOutputComponent } from './input-output/input-output.component';
 
 export const routes: Routes = [
   {
@@ -40,5 +41,9 @@ export const routes: Routes = [
   {
     path: 'httpClient',
     component: HttpClientComponent,
+  },
+  {
+    path: 'inputOutput',
+    component: InputOutputComponent,
   },
 ];

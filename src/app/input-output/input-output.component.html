@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <h3>&#64;Input / &#64;Output</h3>
+  <ul>
+    <li *ngFor="let item of inputOutputArr">
+      @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col-6">
+      <h4>&#64;Input Decorator</h4>
+      <ul>
+        <li *ngFor="let item of inputArr">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          <label for="parentInput">Example of Parent to child communication</label>
+          <input type="text" name="parentInput" class="form-control" [(ngModel)]="parentInput" [placeholder]="'Enter to show data in child component'">
+
+          <app-child [getParentData]="parentInput"></app-child>
+        </li>
+      </ul>
+
+
+    </div>
+    <div class="col-6">
+      <h4>&#64;Output Decorator</h4>
+      <ul>
+        <li *ngFor="let item of outputArr">
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        <li>
+          <label for="outputExample">Example of child to parent communication</label>
+          <div class="parent">
+            <h4>Parent Component</h4>
+            <h4>{{childData}}</h4>
+            <app-child1 (clickevent)="handleChildEvent($event)"></app-child1>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

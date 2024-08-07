@@ -36,6 +36,11 @@ export class PagesInfoArrService {
       pageImageUrl: '',
       pageRoute: '/httpClient',
     },
+    {
+      pageName: '@Input/@Output',
+      pageImageUrl: '',
+      pageRoute: '/inputOutput',
+    },
   ];
   constructor() {}
 
