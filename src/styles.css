@@ -39,8 +39,14 @@ code {
 
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* html, body {
+  height: 100%;
+} */
+body {
+  margin: 0;
+  /* font-family: Roboto,
+  "Helvetica Neue", sans-serif; */
+}
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 
 /* position */
@@ -267,4 +273,8 @@ button.toast-close-button {
     padding: 15px 15px 15px 50px;
     width: 25em;
   }
+}
+
+mat-sidenav .active{
+  background-color: steelblue;
 }
