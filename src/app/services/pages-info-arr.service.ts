@@ -54,6 +54,12 @@ export class PagesInfoArrService {
       pageRoute: '/lifecycle-event',
       icon: 'compost',
     },
+    {
+      pageName: 'Ng-Template',
+      pageImageUrl: '',
+      pageRoute: '/ng-template',
+      icon: 'edit_square',
+    },
   ];
   constructor() {}
 

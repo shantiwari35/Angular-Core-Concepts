@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientComponent } from './http-client/http-client.component';
 import { InputOutputComponent } from './input-output/input-output.component';
 import { LifeCycleEventComponent } from './life-cycle-event/life-cycle-event.component';
+import { NgTemplateComponent } from './ng-template/ng-template.component';
 
 export const routes: Routes = [
   {
@@ -50,5 +51,9 @@ export const routes: Routes = [
   {
     path: 'lifecycle-event',
     component: LifeCycleEventComponent,
+  },
+  {
+    path: 'ng-template',
+    component: NgTemplateComponent,
   },
 ];
