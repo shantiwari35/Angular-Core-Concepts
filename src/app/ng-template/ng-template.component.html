@@ -1,36 +1,111 @@
 <div class="container-fluid">
-  <h3>Ng-Template</h3>
-  <ul>
-    @for (item of ngTemplateArr; track $index) {
+  <div>
+    <h3>Ng-Template<mat-icon><a href="https://angular.dev/api/core/ng-template" target="_blank">link</a></mat-icon></h3>
+    <ul>
+      @for (item of ngTemplateArr; track $index) {
+      <li>
+        @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+      </li>
+      }
+    </ul>
+    <h4>Description</h4>
+    <ol>
+      <li>
+        <b>Not Rendered by Default:</b>The content inside an `ng-template` element is not displayed directly in the
+        browser. Angular
+        uses this element as a placeholder for content that should be rendered conditionally or dynamically.
+      </li>
+      <li>
+        <b>Structural Directives:</b> Commonly used with structural directives like *ngIf, *ngFor, and *ngSwitch. These
+        directives can
+        attach and detach the content of the 'ng-template' based on certain conditions.
+      </li>
+      <li>
+        <b>
+          Dynamic Template Creation:</b> Can be used for dynamically creating and inserting templates using
+        ViewContainerRef and
+        TemplateRef in Angular.
+      </li>
+    </ol>
+    <h4>Example:</h4>
+    <ul>
+      @for (item of exampleNgTemplate; track $index) {
+      <li>
+        @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+      </li>
+      }
+    </ul>
+    <h4>
+      Example of Ng-template
+    </h4>
+    <div class="card" style="width: 18rem;" *ngIf="ngTemplateDiv else cardTemplate">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+        </p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    <ng-template #cardTemplate>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card hidden</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        </div>
+      </div>
+    </ng-template>
+    <button type="button" class="btn btn-warning" (click)="toggleTemplateDiv()">toggle ng-template</button>
+  </div>
+  <div>
+    <h3>Ng-Container<mat-icon><a href="https://angular.dev/api/core/ng-container" target="_blank">link</a></mat-icon></h3>
+    <ul>
+      @for (item of ngContainerArr; track $index) {
+      <li>
+        @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+      </li>
+
+
+      }
+    </ul>
+    <h4>Description</h4>
+    <ul>
+    @for (item of ngContainerDiscription; track $index) {
     <li>
       @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
     </li>
     }
-  </ul>
-  <h4>Description</h4>
-  <ol>
-    <li>
-      <b>Not Rendered by Default:</b>The content inside an `ng-template` element is not displayed directly in the
-      browser. Angular
-      uses this element as a placeholder for content that should be rendered conditionally or dynamically.
-    </li>
-    <li>
-      <b>Structural Directives:</b> Commonly used with structural directives like *ngIf, *ngFor, and *ngSwitch. These
-      directives can
-      attach and detach the content of the 'ng-template' based on certain conditions.
-    </li>
-    <li>
-      <b>
-        Dynamic Template Creation:</b> Can be used for dynamically creating and inserting templates using ViewContainerRef and
-      TemplateRef in Angular.
-    </li>
-  </ol>
-  <h4>Example:</h4>
-  <ul>
-    @for (item of exampleNgTemplate; track $index) {
-    <li>
-      @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
-    </li>
-    }
-  </ul>
+    </ul>
+
+    <h4>Example of Ng-container</h4>
+    <div>
+
+        <ng-container *ngTemplateOutlet="customerTable; context: {cus:customer,bgcolor:'green'}"> </ng-container>
+<ng-container *ngTemplateOutlet="customerTable; context: {cus:customer,bgcolor:'purple'}"> </ng-container>
+      <!-- <ng-container *ngTemplateOutlet="customerTable; context: customer"> </ng-container> -->
+    </div>
+    <ng-template #customerTable let-customer="cus" let-bg="bgcolor">
+      <table [ngStyle]="{'background-color':bg}">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>description</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (item of customer; track $index) {
+          <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+          </tr>
+        }
+        </tbody>
+
+      </table>
+    </ng-template>
+  </div>
+
 </div>

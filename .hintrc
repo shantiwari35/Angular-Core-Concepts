@@ -17,6 +17,7 @@
           "width: fit-content"
         ]
       }
-    ]
+    ],
+    "disown-opener": "off"
   }
 }

@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-ng-template',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, MatIcon, RouterModule],
   templateUrl: './ng-template.component.html',
   styleUrl: './ng-template.component.css',
 })
@@ -57,4 +60,58 @@ export class NgTemplateComponent {
       }
       `,
   ];
+
+  ngContainerArr: string[] = [
+    `<ng-container> is an Angular directive used to group a set of elements without adding an extra node to the DOM.`,
+    `It is especially useful when you want to apply structural directives (like *ngIf, *ngFor, etc.) to multiple elements without introducing an additional wrapper element, which could interfere with the CSS styling or layout.`,
+  ];
+  ngContainerDiscription: string[] = [
+    `No Rendered Output: <ng-container> does not get rendered in the DOM, meaning it does not appear as an extra element in the DOM structure.`,
+    `Structural Directive Host: It acts as a host for structural directives, allowing you to conditionally render a group of elements or repeat a group of elements without adding extra nodes.`,
+    `Example:
+
+    Syntax:
+    <!-- app.component.html -->
+      <ng-container *ngIf="isLoggedIn; else loggedOutTemplate">
+        <ng-container *ngFor="let item of items">
+          <div>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #loggedOutTemplate>
+        <div>
+          <h1>Please log in</h1>
+          <p>You need to log in to access this content.</p>
+        </div>
+      </ng-template>`,
+
+    `Syntax:
+    // app.component.ts
+      import { Component } from '@angular/core';
+
+      @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html'
+      })
+      export class AppComponent {
+        isLoggedIn = true;
+        items = [
+          { title: 'Item 1', description: 'Description 1' },
+          { title: 'Item 2', description: 'Description 2' },
+          { title: 'Item 3', description: 'Description 3' }
+        ];
+      }`,
+  ];
+  ngTemplateDiv = false;
+  customer = [
+    { name: 'Item 1', description: 'Description 1' },
+    { name: 'Item 2', description: 'Description 2' },
+    { name: 'Item 3', description: 'Description 3' },
+  ];
+
+  toggleTemplateDiv() {
+    this.ngTemplateDiv = !this.ngTemplateDiv;
+  }
 }
