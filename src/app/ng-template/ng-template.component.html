@@ -60,7 +60,8 @@
     <button type="button" class="btn btn-warning" (click)="toggleTemplateDiv()">toggle ng-template</button>
   </div>
   <div>
-    <h3>Ng-Container<mat-icon><a href="https://angular.dev/api/core/ng-container" target="_blank">link</a></mat-icon></h3>
+    <h3>Ng-Container<mat-icon><a href="https://angular.dev/api/core/ng-container" target="_blank">link</a></mat-icon>
+    </h3>
     <ul>
       @for (item of ngContainerArr; track $index) {
       <li>
@@ -72,18 +73,18 @@
     </ul>
     <h4>Description</h4>
     <ul>
-    @for (item of ngContainerDiscription; track $index) {
-    <li>
-      @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
-    </li>
-    }
+      @for (item of ngContainerDiscription; track $index) {
+      <li>
+        @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+      </li>
+      }
     </ul>
 
     <h4>Example of Ng-container</h4>
     <div>
 
-        <ng-container *ngTemplateOutlet="customerTable; context: {cus:customer,bgcolor:'green'}"> </ng-container>
-<ng-container *ngTemplateOutlet="customerTable; context: {cus:customer,bgcolor:'purple'}"> </ng-container>
+      <ng-container *ngTemplateOutlet="customerTable; context: {cus:customer,bgcolor:'green'}"> </ng-container>
+      <ng-container *ngTemplateOutlet="customerTable; context: {cus:customer,bgcolor:'purple'}"> </ng-container>
       <!-- <ng-container *ngTemplateOutlet="customerTable; context: customer"> </ng-container> -->
     </div>
     <ng-template #customerTable let-customer="cus" let-bg="bgcolor">
@@ -101,11 +102,46 @@
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
           </tr>
-        }
+          }
         </tbody>
 
       </table>
     </ng-template>
   </div>
+  <div>
+    <h3>Ng-Content<mat-icon><a href="https://angular.dev/api/core/ng-content" target="_blank">link</a></mat-icon></h3>
+    <ul>
+      @for (item of ngContentArr; track $index) {
+      <li>
+        @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+      </li>
+      }
+    </ul>
+    <h4>Advanced Usecase</h4>
+    <ul>
+      @for (item of ngContentAdvArr; track $index) {
+      <li>
+        @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+      </li>
+      }
+    </ul>
+    <h4>Example:</h4>
+    <app-ng-child>
+      <h5>This is rendered using ng-content</h5>
+    </app-ng-child>
+    <app-ng-child>
 
+        <div name1>
+          <p>This content will go into the first ng-content.</p>
+        </div>
+        <div name2>
+          <p>This content will go into the second ng-content.</p>
+        </div>
+        <div name>
+          <p>This content will go into the third ng-content.</p>
+        </div>
+
+    </app-ng-child>
+
+  </div>
 </div>

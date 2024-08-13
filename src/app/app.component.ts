@@ -26,7 +26,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -35,16 +34,18 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       state(
         'collapsed',
         style({
+          transform: 'translate3d(100%, 0, 0)',
           width: '60px',
         })
       ),
       state(
         'expanded',
         style({
+          transform: 'translate3d(0,0,0)',
           width: '200px',
         })
       ),
-      transition('collapsed <=> expanded', [animate('300ms ease-in-out')]),
+      transition('collapsed <=> expanded', [animate('400ms ease-in-out')]),
     ]),
   ],
 })
@@ -70,3 +71,6 @@ export class AppComponent implements OnInit {
     this.isCollapsed = true;
   }
 }
+
+
+

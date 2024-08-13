@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { NgChildComponent } from "./ng-child/ng-child.component";
+import { ChildComponent } from "../input-output/child/child.component";
 
 @Component({
   selector: 'app-ng-template',
   standalone: true,
-  imports: [CommonModule, MatIcon, RouterModule],
+  imports: [CommonModule, MatIcon, RouterModule, NgChildComponent, ChildComponent],
   templateUrl: './ng-template.component.html',
   styleUrl: './ng-template.component.css',
 })
@@ -109,6 +111,61 @@ export class NgTemplateComponent {
     { name: 'Item 1', description: 'Description 1' },
     { name: 'Item 2', description: 'Description 2' },
     { name: 'Item 3', description: 'Description 3' },
+  ];
+  ngContentArr: any = [
+    `<ng-content> is an Angular directive used to project content into a component.`,
+    `It allows you to create reusable components that can wrap arbitrary content provided by the parent component`,
+    `This is commonly referred to as content projection.`,
+    `Basic Usage:Example`,
+    `Syntax:
+      <!-- parent.component.html -->
+      <app-child>
+        <p>This content will be projected into the child component.</p>
+      </app-child>`,
+    `Syntax:
+    <!-- child.component.html -->
+      <div>
+        <h2>Child Component</h2>
+        <ng-content></ng-content>
+      </div>`,
+    `Syntax:
+      // child.component.ts
+        import { Component } from '@angular/core';
+
+        @Component({
+          selector: 'app-child',
+          templateUrl: './child.component.html'
+        })
+        export class ChildComponent {}`,
+    `Explanation: The parent component uses the <app-child> selector to include the child component and provides content (a paragraph in this case) inside the child component's tags.`,
+    `Explanation: The child component uses <ng-content></ng-content> to specify where the content from the parent should be projected.`,
+    `Explanation: When the parent component renders, the content provided by the parent is inserted into the child component's template at the location of <ng-content>.`,
+  ];
+
+  ngContentAdvArr: string[] = [
+    `You can also use named slots to project different parts of the content into specific locations within the child component.`,
+    `Syntax:
+    <!-- parent.component.html -->
+      <app-child>
+        <p slot="header">This is the header content.</p>
+        <p slot="body">This is the body content.</p>
+        <p slot="footer">This is the footer content.</p>
+      </app-child>`,
+    `Syntax:
+      <!-- child.component.html -->
+      <div>
+        <div class="header">
+          <ng-content select="[slot=header]"></ng-content>
+        </div>
+        <div class="body">
+          <ng-content select="[slot=body]"></ng-content>
+        </div>
+        <div class="footer">
+          <ng-content select="[slot=footer]"></ng-content>
+        </div>
+      </div>`,
+    `Explanation: In the parent component, elements are given a slot attribute to indicate which part of the child component they should be projected into.`,
+    `Explanation: In the child component, <ng-content> uses the select attribute to choose which elements to project into each part of the template based on the slot attribute.`,
   ];
 
   toggleTemplateDiv() {

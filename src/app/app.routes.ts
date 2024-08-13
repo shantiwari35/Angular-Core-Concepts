@@ -23,37 +23,46 @@ export const routes: Routes = [
   {
     path: 'data-binding',
     component: DataBindingComponent,
+    title: 'Data Binding',
   },
   {
     path: 'structural-directive',
     component: StructuralComponent,
+    title: 'Structural Directive',
   },
   {
     path: 'attribute-directive',
     component: AttributeComponent,
+    title: 'Attribute Directive',
   },
   {
     path: 'pipes',
     component: PipesComponent,
+    title: 'Pipes',
   },
   {
     path: 'forms',
     component: FormsComponent,
+    title: 'Forms',
   },
   {
     path: 'httpClient',
     component: HttpClientComponent,
+    title: 'Http Client CRUD',
   },
   {
     path: 'inputOutput',
     component: InputOutputComponent,
+    title: '@Input/@Output',
   },
   {
     path: 'lifecycle-event',
     component: LifeCycleEventComponent,
+    title: 'life Cycle Event',
   },
   {
     path: 'ng-template',
     component: NgTemplateComponent,
+    title: 'Ng-Template',
   },
 ];
