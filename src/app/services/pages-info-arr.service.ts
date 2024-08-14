@@ -25,6 +25,12 @@ export class PagesInfoArrService {
       icon: 'account_tree',
     },
     {
+      pageName: 'Decorators',
+      pageImageUrl: '',
+      pageRoute: '/decorators',
+      icon: 'alternate_email',
+    },
+    {
       pageName: 'Pipes',
       pageImageUrl: '',
       pageRoute: '/pipes',
@@ -59,6 +65,12 @@ export class PagesInfoArrService {
       pageImageUrl: '',
       pageRoute: '/ng-template',
       icon: 'edit_square',
+    },
+    {
+      pageName: 'View Child/Children',
+      pageImageUrl: '',
+      pageRoute: '/viewChild',
+      icon: 'tag',
     },
   ];
   constructor() {}

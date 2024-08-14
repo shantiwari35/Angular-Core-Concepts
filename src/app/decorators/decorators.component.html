@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <h3>Decorator &#64; <mat-icon><a href="https://www.geeksforgeeks.org/what-are-decorators-in-angular/" target="_blank">link</a></mat-icon></h3>
+  <ul>
+    @for (item of decoratorMainArr; track $index) {
+    <li>
+      @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+    </li>
+    }
+  </ul>
+
+  <!-- <div class="flexParent"> -->
+  <div class="masonry-container">
+    <div class="masonry-item">
+      <h3>Class Decorators </h3>
+      <ul>
+        @for (item of classDecoratorArr; track $index) {
+        <li>
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        }
+      </ul>
+    </div>
+    <div class="masonry-item">
+      <h3>Property Decorators</h3>
+      <ul>
+        @for (item of PropertyDecoratorArr; track $index) {
+        <li>
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        }
+      </ul>
+
+    </div>
+    <!-- </div> -->
+    <!-- <div class="flexParent"> -->
+    <div class="masonry-item">
+      <h3>Method Decorators</h3>
+      <ul>
+        @for (item of methodDecoratorsArr; track $index) {
+        <li>
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        }
+      </ul>
+    </div>
+    <div class="masonry-item">
+      <h3>Parameter Decorators</h3>
+      <ul>
+        @for (item of parameterDecoratorsArr; track $index) {
+        <li>
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        }
+      </ul>
+
+    </div>
+  </div>
+</div>

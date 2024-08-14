@@ -8,8 +8,6 @@ nav{
   position: sticky;
   -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
-    padding-top: 15px;
-    padding-bottom: 15px;
     background-color: hsla(40, 37%, 97%, .2);
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
 }
@@ -77,6 +75,6 @@ mat-sidenav span{
   align-items: center;
 }
 
-mat-icon {
-  margin-right: 8px;
+nav img{
+  height:2.5rem;
 }
