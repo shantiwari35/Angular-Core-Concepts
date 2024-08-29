@@ -1,1 +1,35 @@
-<p>view-child-decorator works!</p>
+<div class="container-fluid">
+  <h3># View Child / Children <mat-icon><a
+        href="https://medium.com/@jaydeepvpatil225/view-child-and-view-children-in-angular-fa19b77740d5"
+        target="_blank">link</a></mat-icon></h3>
+  <ul>
+    @for (item of viewChildMainArr; track $index) {
+    <li>
+      @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+    </li>
+    }
+  </ul>
+
+  <div class="flexParent">
+    <div >
+      <h3>View Child</h3>
+      <ul>
+        @for (item of viewChild; track $index) {
+        <li>
+          @if (item.includes('Syntax')) { <code>{{ item }}</code>}@else{<b>{{ item }}</b>}
+        </li>
+        }
+      </ul>
+      <h4>Practical Example:</h4>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" #exampleInputEmail1 aria-describedby="emailHelp"
+          placeholder="Enter email" (input)="onchangeInputField()">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <button type="submit" class="btn btn-warning" #btnChild>Submit</button>
+      <h6>Output of input field using ViewChild: {{fieldval}}</h6>
+    </div>
+    <div></div>
+  </div>
+</div>

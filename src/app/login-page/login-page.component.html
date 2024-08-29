@@ -1,0 +1,89 @@
+<div class="parent">
+  <div class="form-container">
+    <ng-template #login>
+      <h1 class="title">LOGIN</h1>
+      <form class="form" [formGroup]="loginForm">
+        <div class="input-group">
+          <label for="username" class="username">Username</label>
+          <input type="text" name="username" required formControlName="EmailId">
+        </div>
+        <div class="input-group">
+          <label for="password" class="password">Password</label>
+          <input type="password" name="password" required formControlName="Password">
+        </div>
+        <div class="forgot">
+          <a href="#">Forgot password ?</a>
+        </div>
+        <button class="sign-in" (click)="onLoginClick()">Sign in</button>
+        <div class="social-messages">
+          <div class="line"></div>
+          <p class="message">Login with social accounts</p>
+          <div class="line"></div>
+        </div>
+        <div class="icons">
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+        <p class="sign-up">Don't you have an account?
+          <a (click)="isLogin = !isLogin">Sign up</a>
+        </p>
+      </form>
+    </ng-template>
+    <ng-template #signup>
+      <h1 class="title">SIGN UP</h1>
+      <form [formGroup]="createUserFormData" class="form">
+        <div class="input-group">
+          <label for="firstName" class="username">First Name</label>
+          <input type="text" name="firstName" formControlName="firstName">
+        </div>
+        <div class="input-group">
+          <label for="middleName" class="username">Middle Name</label>
+          <input type="text" name="middleName" formControlName="middleName">
+        </div>
+        <div class="input-group">
+          <label for="lastName" class="lastName">Last Name</label>
+          <input type="text" name="lastName" formControlName="lastName">
+        </div>
+        <div class="input-group">
+          <label for="mobileNo" class="mobileNo">Mobile No</label>
+          <input type="tel" name="mobileNo" formControlName="mobileNo">
+        </div>
+        <div class="input-group">
+          <label for="altMobileNo" class="altMobileNo">Alternate Mobile No</label>
+          <input type="tel" name="altMobileNo" formControlName="altMobileNo">
+        </div>
+        <div class="input-group">
+          <label for="emailId" class="emailId">Email Id</label>
+          <input type="text" name="emailId" formControlName="emailId">
+        </div>
+        <div class="input-group">
+          <label for="password" class="password">password</label>
+          <input type="password" name="password" formControlName="password">
+        </div>
+        <div class="forgot">
+          <a href="#">Forgot password ?</a>
+        </div>
+        <button class="sign-in" (click)="onSignupClick()">Sign up!</button>
+        <div class="social-messages">
+          <div class="line"></div>
+          <p class="message">Login with social accounts</p>
+          <div class="line"></div>
+        </div>
+        <div class="icons">
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+        <p class="sign-up">Already have an account?
+          <a (click)="isLogin = !isLogin">Login</a>
+        </p>
+      </form>
+    </ng-template>
+    @if(isLogin){
+    <ng-container *ngTemplateOutlet="login"> </ng-container>
+    }@else{
+    <ng-container *ngTemplateOutlet="signup"> </ng-container>
+    }
+  </div>
+</div>

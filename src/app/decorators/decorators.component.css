@@ -3,14 +3,4 @@
   flex-direction: row;
   flex-wrap: nowrap;
 }
-.masonry-container {
-  column-count: 2;
-  column-gap: 15px;
-}
-.masonry-item {
-  display: ruby-text;
-  width: 100%;
-  /* -webkit-column-break-inside: avoid;
-    break-inside: avoid;
-    page-break-inside: avoid; */
-}
+

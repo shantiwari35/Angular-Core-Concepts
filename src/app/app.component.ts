@@ -49,27 +49,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'angular_core';
-  isCollapsed = true;
-  pagesInfoObservable!: Observable<PageInfo[]>;
-  constructor(private pgService: PagesInfoArrService) {}
 
-  ngOnInit(): void {
-    this.pagesInfoObservable = this.pgService.getPageInformation();
-    // console.log(this.pagesInfoObservable);
-  }
-  toggleMenu() {
-    // On desktop/tablet, the menu can never be fully closed
-    this.isCollapsed = !this.isCollapsed;
-  }
-  onMouseEnter() {
-    this.isCollapsed = false;
-  }
-
-  onMouseLeave() {
-    this.isCollapsed = true;
-  }
 }
 
 
