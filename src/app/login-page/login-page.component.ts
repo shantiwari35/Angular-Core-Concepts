@@ -31,30 +31,23 @@ export class LoginPageComponent {
   });
 
   createUserFormData: FormGroup = this._fb.group({
+    userId:0,
     firstName: ['', Validators.required],
     middleName: [''],
     lastName: ['', Validators.required],
-    mobileNo: ['', Validators.required],
     emailId: ['', Validators.required],
-    altMobileNo: ['', Validators.required],
     password: ['', Validators.required],
-    userAddress: this._fb.group({
-      city: ['Nagpur'],
-      state: ['MH'],
-      pincode: ['411028'],
-      addressLine: [''],
-    }),
-    userSocialDetails: this._fb.group({
-      facebookProfileUrl: ['string'],
-      linkdinProfileUrl: ['string'],
-      instagramHandle: ['string'],
-      twitterHandle: ['string'],
-    }),
+    fullName:[''],
   });
 
   onSignupClick() {
-    const userDetails = this.createUserFormData.value;
+
     if (this.createUserFormData.valid) {
+      this.createUserFormData.patchValue({
+        fullName: `${this.createUserFormData.get('firstName')?.value} ${this.createUserFormData.get('middleName')?.value} ${this.createUserFormData.get('lastName')?.value} `,
+      });
+      // debugger;
+      let userDetails = this.createUserFormData.value;
       this.loginService.addUser(userDetails).subscribe((res: any) => {
         console.log(res);
         if (res.result) {
@@ -92,7 +85,12 @@ export class LoginPageComponent {
           });
           this.loginForm.reset();
         }
-      });
+      },
+    (err:any)=>{
+       this.toastrService.error(err, 'Error !', {
+         timeOut: 3000,
+       });
+    });
     }
   }
 }

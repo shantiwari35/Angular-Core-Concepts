@@ -5,6 +5,6 @@ export const apiEndpoint = {
   AddNewCourse: `/api/OnlineLearning/AddNewCourse`,
   UpdateCourse: '/api/OnlineLearning/UpdateCourse',
   DeleteCourseById: '/api/OnlineLearning/DeleteCourseById',
-  createNewUser: '/api/JWT/CreateNewUser',
-  login: '/api/JWT/login',
+  createNewUser: '/api/UserApp/CreateNewUser',
+  login: '/api/UserApp/login',
 };

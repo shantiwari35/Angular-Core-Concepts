@@ -9,7 +9,7 @@ import { pipe, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  private baseUrl = environment.apiBaseUrlv2;
+  private baseUrl = environment.apiBaseUrl;
   constructor() {}
 
   https = inject(HttpClient);

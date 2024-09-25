@@ -43,6 +43,12 @@ export class PagesInfoArrService {
       icon: 'list',
     },
     {
+      pageName: 'Forms Example',
+      pageImageUrl: '',
+      pageRoute: '/forms-example',
+      icon: 'list',
+    },
+    {
       pageName: 'HttpClient-CRUD',
       pageImageUrl: '',
       pageRoute: '/httpClient',

@@ -14,6 +14,7 @@ import { ViewChildDecoratorComponent } from './view-child-decorator/view-child-d
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LayoutComponent } from './layout/layout.component';
 import { authGuard } from './Guard/Auth.guard';
+import { FormsExampleComponent } from './forms/forms-example/forms-example.component';
 
 export const routes: Routes = [
   {
@@ -60,8 +61,13 @@ export const routes: Routes = [
         title: 'Forms',
       },
       {
+        path: 'forms-example',
+        component: FormsExampleComponent,
+        title: 'Forms',
+      },
+      {
         path: 'httpClient',
-        component: HttpClientComponent,
+        loadComponent:()=>import('./http-client/http-client.component').then(c=>c.HttpClientComponent),
         title: 'Http Client CRUD',
       },
       {
